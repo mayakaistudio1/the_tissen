@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpeakUp — Искусство влияния. Андреас Тиссен</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ПАЛИТРА И ПАРАМЕТРЫ */
+    :root {
+      --bg-main: #0A0A0A; /* Глубокий черный */
+      --bg-card: #1C1C1C; /* Более темный фон для карточек */
+      --text-light: #F0F0F0; /* Чуть светлее, чем белый */
+      --text-muted: #BDBDBD;
+      --accent: #00A896; /* Изумрудный / Теал */
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg-main);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-light);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ТИПОГРАФИКА */
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    h2 { font-size: 44px; text-align: center; margin-bottom: 40px; }
+    p { color: var(--text-muted); font-size: 18px; }
+
+    .container {
+      width: 90%;
+      max-width: 1050px; /* Увеличено для лучшей композиции */
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+
+    /* КНОПКА */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg-main);
+      padding: 18px 45px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(0, 168, 150, 0.4);
+      text-transform: uppercase;
+    }
+    .btn:hover { background: #00BFB0; transform: translateY(-2px); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 120px 0 110px;
+      /* Премиальное свечение */
+      box-shadow: 0 0 100px rgba(0, 168, 150, 0.08) inset; 
+    }
+    .hero h1 {
+      font-size: 72px; /* Максимально крупный заголовок */
+      max-width: 900px;
+      margin: 0 auto 25px;
+      color: var(--text-light);
+    }
+    .hero p {
+      font-size: 24px;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    .hook {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* VALUE BLOCK */
+    .value {
+      background: var(--bg-card);
+      padding: 50px;
+      border-radius: var(--radius);
+      border: 1px solid #333;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .value h2 {
+      font-size: 38px;
+      margin-bottom: 25px;
+      color: var(--accent);
+    }
+    .value p {
+      font-size: 20px;
+      color: var(--text-light);
+    }
+
+    /* MENTOR BLOCK (Самый премиальный) */
+    .mentor-block {
+      background: linear-gradient(135deg, #1C1C1C 0%, #000000 100%);
+      padding: 60px 50px;
+      border-radius: var(--radius);
+      border: 2px solid var(--accent);
+      box-shadow: 0 15px 50px var(--accent-shadow);
+      max-width: 850px;
+      margin: 60px auto 0;
+    }
+    .mentor-block h2 {
+      font-size: 48px;
+      text-align: left;
+      margin-bottom: 30px;
+      color: var(--text-light);
+    }
+    .mentor-block .regalia {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .mentor-block .regalia p {
+      font-size: 19px;
+      line-height: 1.4;
+      border-left: 3px solid var(--accent);
+      padding-left: 15px;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+    .mentor-block strong { color: var(--accent); font-weight: 700; }
+    .mentor-conclusion {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    /* AVATAR */
+    .avatar-wrapper {
+      max-width: 850px; /* Выравнивание по другим блокам */
+      margin: 60px auto 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 30px var(--accent-shadow);
+    }
+    .avatar-wrapper iframe {
+      width: 100%;
+      border: none;
+      aspect-ratio: 16/9;
+      display: block;
+    }
+
+    /* FORM */
+    .form-section {
+      padding: 90px 0;
+      background: linear-gradient(180deg, #1C1C1C 0%, var(--bg-main) 100%);
+    }
+    .form-wrapper {
+      background: var(--bg-card);
+      padding: 50px;
+      border-radius: var(--radius);
+      border: 1px solid #333;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      max-width: 700px; /* Гармоничная ширина для формы */
+      margin: 0 auto;
+    }
+    .form-wrapper h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .form-wrapper p {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 20px;
+    }
+    .form-group { margin-bottom: 25px; }
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 18px;
+      background: #000;
+      border: 1px solid #333;
+      color: var(--text-light);
+      border-radius: 10px;
+      font-size: 18px;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(0, 168, 150, 0.2);
+    }
+
+    /* АДАПТИВНОСТЬ */
+    @media (max-width: 768px) {
+      h1 { font-size: 48px; }
+      h2 { font-size: 36px; }
+      .hero { padding: 80px 0; }
+      .hero p { font-size: 20px; }
+      .mentor-block .regalia { grid-template-columns: 1fr; }
+      .mentor-block h2 { text-align: center; }
+      .value, .mentor-block, .form-wrapper { padding: 30px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="container">
+      <p class="hook">«Тебе не нужно проходить этот путь 30 лет — ты берёшь готовую систему»</p>
+      <h1>Искусство влияния. <br> Твой прорыв на сцену.</h1>
+      <p>
+        SpeakUp — это <span class="highlight">трансформация за 72 часа</span>, которая гарантированно выводит тебя
+        на сцену перед **тысячей человек**.
+      </p>
+      <a href="#avatar" class="btn">Начать диалог с Алиной</a>
+    </div>
+  </section>
+
+  <div class="container" style="padding-top: 0;">
+    <div class="value">
+      <h2>Главная ценность: Прорыв</h2>
+      <p>
+        Мы не учим «говорить». Мы создаём **мощный внутренний прорыв** и уверенность,
+        которая остаётся с тобой навсегда. Финальное выступление перед огромной аудиторией — это твоя новая точка отсчета.
+      </p>
+    </div>
+  </div>
+
+  <section class="container" style="padding-bottom: 0;">
+    <div class="mentor-block">
+      <h2>Ментор: Андреас Тиссен</h2>
+      <div class="regalia">
+        <p>Более <strong>30 лет</strong> международного опыта, собранного для твоей системы.</p>
+        <p>Автор <strong>7 книг</strong> о публичных выступлениях и влиянии.</p>
+        <p>Провел более <strong>1000 тренингов</strong> в 20+ странах мира.</p>
+        <p>Выступал на одной сцене с <strong>Тони Роббинсом</strong>, <strong>Ником Вуйчичем</strong> и <strong>Робином Шармой</strong>.</p>
+      </div>
+      <p class="mentor-conclusion">
+        Ты получаешь не теорию, а сконцентрированный опыт человека, который дважды в Книге рекордов Гиннесса.
+      </p>
+    </div>
+  </section>
+
+  <section class="container" id="avatar" style="padding-bottom: 40px;">
+    <p class="text-center" style="margin-bottom: 20px; font-weight: 600; font-size: 20px;">
+      Твой личный ассистент <span class="highlight">Алина</span> уже ждет:
+    </p>
+    <div class="avatar-wrapper">
+      <iframe 
+        src="https://embed.liveavatar.com/v1/09f4c94a-81fe-4285-97b1-95e219e755bf"
+        allow="microphone"
+        title="LiveAvatar Алина SpeakUp">
+      </iframe>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <h2>Сделай первый шаг</h2>
+        <p>Оставь заявку. Алина соберет твою информацию, и наш менеджер свяжется для обсуждения личного разбора цели.</p>
+        
+        <form>
+          <div class="form-group">
+            <label>Твоё Имя</label>
+            <input type="text" required placeholder="Как к тебе обращаться?">
+          </div>
+
+          <div class="form-group">
+            <label>Telegram или телефон</label>
+            <input type="text" required placeholder="@username или +7 (xxx) xxx-xx-xx">
+          </div>
+
+          <div class="form-group">
+            <label>Твоя главная цель</label>
+            <input type="text" required placeholder="Например: Продавать со сцены или Управлять аудиторией">
+          </div>
+
+          <button class="btn" style="width:100%; margin-top:15px;">Забронировать место и разбор</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
