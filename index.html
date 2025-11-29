@@ -3,240 +3,295 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SpeakUp — Прорыв на сцену за 72 часа</title>
-
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-
+  <title>SpeakUp: 72 часа до сцены — Андреас Тиссен</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
+    /* ПРЕМИАЛЬНАЯ ЦВЕТОВАЯ ПАЛИТРА */
     :root {
-      --bg-main: #0b0b0b;
-      --bg-card: #141414;
-      --text-light: #ffffff;
-      --text-muted: #bdbdbd;
-      --accent: #00b89c;
-      --radius: 16px;
+      --accent-gold: #FFC72C; /* Золотой акцент */
+      --accent-shadow: rgba(255, 199, 44, 0.4);
+      --bg-main: #0A0A0A; /* Глубокий черный */
+      --bg-card: #1C1C1C; /* Темный фон для блоков */
+      --text-light: #FFFFFF;
+      --text-muted: #BDBDBD;
+      --font-primary: 'Montserrat', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: var(--bg-main);
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-primary);
+      background-color: var(--bg-main);
       color: var(--text-light);
       line-height: 1.6;
-    }
-
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      line-height: 1.15;
+      overflow-x: hidden;
     }
 
     .container {
-      width: 90%;
-      max-width: 1100px;
+      max-width: 960px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
       padding: 80px 0;
     }
 
-    /* BUTTON */
+    h1, h2, h3 {
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    
+    h2 { font-size: 38px; text-align: center; margin-bottom: 40px; }
+
+    .highlight { color: var(--accent-gold); }
+
+    /* КНОПКА */
     .btn {
       display: inline-block;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 18px 38px;
-      border-radius: 10px;
+      padding: 18px 40px;
+      background-color: var(--accent-gold);
+      color: #000;
       font-weight: 700;
-      font-size: 18px;
+      border-radius: 8px;
       text-decoration: none;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(0,184,156,0.35);
+      font-size: 18px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 20px var(--accent-shadow);
+      text-transform: uppercase;
     }
-    .btn:hover { background: #02d7b6; }
+    .btn:hover { background-color: #FFD75F; transform: translateY(-2px); }
+    .btn-full { width: 100%; text-align: center; }
 
     /* HERO */
-    .hero {
+    .hero { 
+      padding: 100px 0; 
       text-align: center;
-      padding: 130px 0 110px;
-      background: radial-gradient(circle at center, rgba(0,184,156,0.18), transparent 70%);
+      background: linear-gradient(180deg, var(--bg-main) 0%, #151515 100%);
+    }
+    .hero-pretitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
     .hero h1 {
-      font-size: 60px;
-      max-width: 900px;
-      margin: 0 auto 25px;
-    }
-    .hero p {
-      font-size: 22px;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 35px;
-    }
-
-    /* VALUE BLOCK (SpeakUp Core Value) */
-    .value {
-      background: var(--bg-card);
-      padding: 60px 40px;
-      border-radius: var(--radius);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-    .value h2 {
-      font-size: 42px;
+      font-size: 64px;
       margin-bottom: 25px;
-    }
-    .value p {
-      font-size: 20px;
-      max-width: 850px;
-      margin: 0 auto 18px;
-      color: var(--text-muted);
-    }
-
-    /* ANDREAS BLOCK */
-    .andreas {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      padding: 60px 40px;
-      margin-top: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-    .andreas h2 {
-      font-size: 46px;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .andreas p {
-      font-size: 20px;
-      max-width: 850px;
-      margin: 0 auto 16px;
-      color: var(--text-muted);
-    }
-    .andreas strong { color: var(--accent); }
-
-    /* LIVE AVATAR */
-    .avatar-block {
-      margin-top: 60px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 3px solid var(--accent);
-      box-shadow: 0 20px 50px rgba(0,184,156,0.25);
-    }
-    .avatar-block iframe {
-      width: 100%;
-      border: none;
-      aspect-ratio: 16/9;
-    }
-
-    /* FORM */
-    .form-wrapper {
-      margin-top: 90px;
-      background: var(--bg-card);
-      padding: 50px 40px;
-      border-radius: var(--radius);
-      border: 1px solid #2a2a2a;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      max-width: 700px;
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
     }
-    .form-wrapper h2 {
-      font-size: 38px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 22px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 15px;
+    .hero-sub {
+      font-size: 24px;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto 40px;
       color: var(--text-muted);
-      margin-bottom: 6px;
-      font-weight: 600;
     }
-    .form-group input {
+    .hero-sub strong { color: var(--accent-gold); }
+
+    /* DEMO & PERSONA */
+    .persona-section {
+      padding: 40px 0 80px;
+      background-color: var(--bg-card);
+      border-top: 1px solid #333;
+    }
+    .demo-wrapper {
+      max-width: 750px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+      border: 3px solid var(--accent-gold);
+    }
+    .demo-wrapper iframe {
       width: 100%;
-      padding: 16px;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+    .persona-intro {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* VALUE PROPOSITION */
+    .value-section {
+      background-color: var(--bg-main);
+      padding: 60px 0;
+    }
+    .value-box {
+      background: linear-gradient(145deg, #1C1C1C, #282828);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid #333;
+      text-align: center;
+    }
+    .value-box h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+    }
+    .value-box p {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* MENTOR BLOCK */
+    .mentor-block {
+      background-color: var(--bg-main);
+      text-align: center;
+    }
+    .mentor-block p {
+      font-size: 18px;
+      max-width: 650px;
+      margin: 20px auto 0;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+    .mentor-block strong {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    /* FORM */
+    .form-section {
+      padding: 60px 0 80px;
+      background-color: var(--bg-card);
+    }
+    .form-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      background-color: #101010;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+    .form-wrapper h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .form-wrapper p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .input-group { margin-bottom: 20px; }
+    .input-group label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-muted); font-weight: 700; }
+    .input-group input {
+      width: 100%;
+      padding: 14px;
       background: #000;
       border: 1px solid #333;
       color: #fff;
-      border-radius: 10px;
-      font-size: 18px;
+      border-radius: 8px;
+      font-size: 16px;
     }
-    .form-group input:focus {
-      outline: none;
-      border-color: var(--accent);
+    .input-group input:focus { outline: none; border-color: var(--accent-gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      h1 { font-size: 42px; }
+      h2 { font-size: 32px; }
+      .hero { padding: 60px 0; }
+      .hero-sub { font-size: 20px; }
+      section { padding: 40px 0; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>Твой прорыв на сцену. <br> 72 часа до уверенного выступления.</h1>
-      <p>SpeakUp — трансформация, которая выводит тебя на сцену перед тысячей человек.</p>
-      <a href="#avatar" class="btn">Пообщаться с Алиной</a>
+      <p class="hero-pretitle">Интенсив Андреаса Тиссена</p>
+      <h1>
+        ТВОЙ ПРОРЫВ НА СЦЕНУ. <span class="highlight">72 ЧАСА ДО УВЕРЕННОСТИ.</span>
+      </h1>
+      <p class="hero-sub">
+        SpeakUp — это не просто тренинг. Это трансформация, после которой ты выступаешь
+        перед <strong>тысячей человек</strong>. <br>
+        Готов сделать первый шаг?
+      </p>
+      <a href="#alina-chat" class="btn">Задать вопрос Алине</a>
     </div>
   </section>
 
-  <!-- VALUE BLOCK -->
-  <section class="container">
-    <div class="value">
-      <h2>Главная ценность SpeakUp</h2>
-      <p>Через три дня ты выходишь на сцену перед реальной аудиторией, преодолеваешь страх и создаёшь момент, который меняет твою жизнь.</p>
-      <p style="margin-top:18px; font-size:22px; color:white;">Это твоя внутренняя сила, уверенность и новый уровень дохода.</p>
+  <section class="persona-section">
+    <div class="container">
+      <p class="persona-intro">
+        Ваш личный ассистент <span class="highlight">Алина</span> уже ждет:
+      </p>
+      <div class="demo-wrapper" id="alina-chat">
+
+        <!-- 🔥 НОВЫЙ MBTA EMBED-КОД -->
+        <iframe 
+          src="https://embed.liveavatar.com/v1/a8204eae-5430-4284-9aa2-c0d7708dc10a" 
+          allow="microphone" 
+          title="LiveAvatar Embed" 
+          style="aspect-ratio: 16/9;">
+        </iframe>
+
+      </div>
     </div>
   </section>
 
-  <!-- ANDREAS -->
-  <section class="container">
-    <div class="andreas">
-      <h2>Андреас Тиссен</h2>
-      <p>Более <strong>30 лет</strong> опыта в международных выступлениях и обучении лидеров.</p>
-      <p>Автор <strong>7 книг</strong>, президент Международной ассоциации спикеров.</p>
-      <p>Провел более <strong>1000 событий</strong> в 20+ странах.</p>
-      <p>Работал с <strong>PWC, KPMG, Deloitte, Mary Kay, Deutsche Bank</strong> и другими сильнейшими брендами.</p>
-      <p>Выступал вместе с <strong>Тони Роббинсом</strong>, <strong>Робином Шармой</strong> и <strong>Ником Вуйчичем</strong>.</p>
-      <p style="margin-top:25px; font-size:22px; color:white;"><strong>Его миссия:</strong> привести тебя к сцене и уверенности, которая остаётся с тобой навсегда.</p>
+  <section class="value-section">
+    <div class="container">
+      <div class="value-box">
+        <h3>Главная ценность: Прорыв</h3>
+        <p>
+          Через три дня ты выходишь на сцену перед реальной аудиторией, преодолеваешь страх и получаешь
+          тот внутренний прорыв, который дает <strong>уверенность на всю жизнь</strong>.
+        </p>
+        <p style="margin-top: 15px; font-weight: 700; color: #fff;">
+          Это меняет твою игру.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- AVATAR -->
-  <section class="container" id="avatar">
-    <div class="avatar-block">
-      <iframe 
-        src="https://embed.liveavatar.com/v1/09f4c94a-81fe-4285-97b1-95e219e755bf"
-        allow="microphone"
-        title="LiveAvatar Алина SpeakUp">
-      </iframe>
+  <section class="mentor-block">
+    <div class="container">
+      <h2>Ментор: Андреас Тиссен</h2>
+      <p>
+        Тебе не нужно тратить <strong>тридцать лет</strong> на поиски системы.
+        Ты берешь готовый путь от человека, который выступал с <strong class="highlight">Тони Роббинсом</strong>,
+        написал <strong class="highlight">семь книг</strong> и дважды попал в <strong class="highlight">Книгу рекордов Гиннесса</strong>.
+      </p>
     </div>
   </section>
 
-  <!-- FORM -->
-  <section class="container">
-    <div class="form-wrapper">
-      <h2>Сделай первый шаг</h2>
-
-      <form>
-        <div class="form-group">
-          <label>Твоё имя</label>
-          <input type="text" required placeholder="Как к тебе обращаться?">
-        </div>
-
-        <div class="form-group">
-          <label>Telegram или телефон</label>
-          <input type="text" required placeholder="@username или номер">
-        </div>
-
-        <div class="form-group">
-          <label>Твоя цель</label>
-          <input type="text" required placeholder="Коротко о главном">
-        </div>
-
-        <button class="btn" style="width:100%; margin-top:10px;">Оставить заявку</button>
-      </form>
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <h2 class="text-center">Сделай первый шаг</h2>
+        <p>Оставь заявку, чтобы получить персональный разбор от нашей команды.</p>
+        <form action="#" method="POST">
+          <div class="input-group">
+            <label>Твоё имя</label>
+            <input type="text" placeholder="Имя" required>
+          </div>
+          <div class="input-group">
+            <label>Телефон или Telegram</label>
+            <input type="text" placeholder="Удобный контакт" required>
+          </div>
+          <div class="input-group">
+            <label>Твоя цель на сцене (коротко)</label>
+            <input type="text" placeholder="Например: Продавать со сцены" required>
+          </div>
+          <button type="submit" class="btn btn-full">Отправить заявку</button>
+        </form>
+      </div>
     </div>
   </section>
 
