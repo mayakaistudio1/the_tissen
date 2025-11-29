@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpeakUp: Трансформация за 72 часа — Андреас Тиссен</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ПРЕМИАЛЬНАЯ ЦВЕТОВАЯ ПАЛИТРА (ИЗУМРУДНЫЙ СТАНДАРТ) */
+    :root {
+      --accent-emerald: #00A896; /* Изумрудный акцент */
+      --accent-shadow: rgba(0, 168, 150, 0.4);
+      --bg-main: #0D0D0D; 
+      --bg-card: #1C1C1C; 
+      --text-light: #FFFFFF;
+      --text-muted: #BDBDBD;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px; /* Увеличена ширина контейнера */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* ПРЕМИАЛЬНАЯ ТИПОГРАФИКА */
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+    }
+    
+    h2 { font-size: 38px; text-align: center; margin-bottom: 40px; }
+
+    .highlight { color: var(--accent-emerald); }
+
+    /* КНОПКА */
+    .btn {
+      display: inline-block;
+      padding: 18px 40px;
+      background-color: var(--accent-emerald);
+      color: #000;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 20px var(--accent-shadow);
+      text-transform: uppercase;
+    }
+    .btn:hover { background-color: #00BFB0; transform: translateY(-2px); }
+    .btn-full { width: 100%; text-align: center; }
+
+    /* HERO */
+    .hero { 
+      padding: 100px 0; 
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-main) 0%, #151515 100%);
+    }
+    .hero-pretitle {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 68px; /* Увеличенный размер для премиальности */
+      margin-bottom: 25px;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-sub {
+      font-size: 24px;
+      font-weight: 400;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      color: var(--text-muted);
+    }
+    .hero-sub strong { color: var(--accent-emerald); }
+
+    /* DEMO & PERSONA */
+    .persona-section {
+      padding: 40px 0 80px;
+      background-color: var(--bg-card);
+      border-top: 1px solid #333;
+    }
+    .demo-wrapper {
+      max-width: 800px; /* Выравнивание */
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+      border: 3px solid var(--accent-emerald);
+    }
+    .demo-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+    .persona-intro {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* VALUE PROPOSITION (КЛЮЧЕВАЯ ЦЕННОСТЬ) */
+    .value-section {
+      background-color: var(--bg-main);
+      padding: 60px 0;
+    }
+    .value-box {
+      background: linear-gradient(145deg, #1C1C1C, #282828);
+      border-radius: 12px;
+      padding: 40px;
+      max-width: 800px; /* Выравнивание */
+      margin: 0 auto;
+      border: 1px solid #333;
+      text-align: center;
+    }
+    .value-box h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+    }
+    .value-box p {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* MENTOR BLOCK */
+    .mentor-block {
+      background-color: var(--bg-main);
+      text-align: center;
+    }
+    .mentor-block p {
+      font-size: 18px;
+      max-width: 750px; /* Выравнивание */
+      margin: 20px auto 0;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+    .mentor-block strong {
+      color: var(--accent-emerald);
+      font-weight: 700;
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      padding: 60px 0 80px;
+      background-color: var(--bg-card);
+    }
+    .form-wrapper {
+      max-width: 650px; /* Увеличено для лучшего выравнивания с другими блоками */
+      margin: 0 auto;
+      background-color: #101010;
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+    .form-wrapper h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .form-wrapper p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .input-group { margin-bottom: 20px; }
+    .input-group label { display: block; margin-bottom: 8px; font-size: 16px; color: var(--text-muted); font-weight: 700; }
+    .input-group input {
+      width: 100%;
+      padding: 16px; /* Больше отступов для премиальности */
+      background: #000;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    .input-group input:focus { outline: none; border-color: var(--accent-emerald); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      h1 { font-size: 42px; }
+      h2 { font-size: 32px; }
+      .hero { padding: 60px 0; }
+      .hero-sub { font-size: 20px; }
+      section { padding: 40px 0; }
+      .form-wrapper { max-width: 100%; padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container">
+      <p class="hero-pretitle">Интенсив Андреаса Тиссена</p>
+      <h1>
+        ТВОЙ ПРОРЫВ НА СЦЕНУ. <span class="highlight">72 ЧАСА ДО УВЕРЕННОСТИ.</span>
+      </h1>
+      <p class="hero-sub">
+        SpeakUp — это не просто тренинг. Это трансформация, после которой ты выступаешь
+        перед <strong>тысячей человек</strong>. <br>
+        Готов взять готовую систему?
+      </p>
+      <a href="#alina-chat" class="btn">Задать вопрос Алине</a>
+    </div>
+  </section>
+
+  <section class="persona-section">
+    <div class="container">
+      <p class="persona-intro">
+        Ваш личный ассистент <span class="highlight">Алина</span> уже ждет:
+      </p>
+      <div class="demo-wrapper" id="alina-chat">
+        <iframe src="https://embed.liveavatar.com/v1/09f4c94a-81fe-4285-97b1-95e219e755bf" 
+                allow="microphone" 
+                title="LiveAvatar Alina" 
+                style="aspect-ratio: 16/9;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-section">
+    <div class="container">
+      <div class="value-box">
+        <h3>Главная ценность: Прорыв на сцену</h3>
+        <p>
+          Через три дня ты выходишь на сцену перед реальной аудиторией, преодолеваешь страх и получаешь
+          тот внутренний прорыв, который дает <strong>уверенность на всю жизнь</strong>.
+        </p>
+        <p style="margin-top: 15px; font-weight: 700; color: #fff;">
+          Это моментально меняет твою игру и твой доход.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mentor-block">
+    <div class="container">
+      <h2>Ментор: Андреас Тиссен</h2>
+      <p>
+        Тебе не нужно тратить <strong>тридцать лет</strong> на поиски правильной системы.
+        Ты берешь готовый, проверенный путь от человека, который
+        выступал с <strong class="highlight">Тони Роббинсом</strong>, написал <strong class="highlight">семь книг</strong>
+        и дважды попал в <strong class="highlight">Книгу рекордов Гиннесса</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <h2 class="text-center">Сделай первый шаг к сцене</h2>
+        <p>Оставь заявку, и наш специалист свяжется с тобой, чтобы обсудить личный разбор твоей цели.</p>
+        <form action="#" method="POST">
+          <div class="input-group">
+            <label>Твоё Имя</label>
+            <input type="text" placeholder="Как к тебе обращаться" required>
+          </div>
+          <div class="input-group">
+            <label>Телефон или Telegram</label>
+            <input type="text" placeholder="Удобный контакт" required>
+          </div>
+          <div class="input-group">
+            <label>Твоя главная цель на сцене (коротко)</label>
+            <input type="text" placeholder="Например: Продавать со сцены/Уверенно говорить" required>
+          </div>
+          <button type="submit" class="btn btn-full">Обсудить личный разбор</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
